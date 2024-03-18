@@ -1,3 +1,5 @@
+import 'package:buy_buddy_app/pages/join_page.dart';
+import 'package:buy_buddy_app/pages/list_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -11,11 +13,17 @@ class IntroPage extends StatelessWidget {
         children: [
           //logo
           Padding(
-            padding: const EdgeInsets.only(left: 285.0),
-            child: Image.asset('lib/utils/assets/images/shopping_kart.png'),
+            padding: const EdgeInsets.only(left: 175.0, top: 10.0),
+            child: Transform.scale(
+              scale: 1.1, // Defina a escala desejada (1.0 é a escala original)
+              child: Image.asset(
+                'lib/utils/assets/images/shopping_kart.png',
+              ),
+            ),
           ),
 
-          Padding(
+          Spacer(),
+          const Padding(
             padding: EdgeInsets.only(left: 54.0, top: 00.0),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -30,7 +38,7 @@ class IntroPage extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 54.0),
             child: Align(
               alignment: Alignment.centerLeft,
@@ -45,38 +53,52 @@ class IntroPage extends StatelessWidget {
           ),
 
           // Btn criar
-          Container(
-            decoration: BoxDecoration(
-                color: Color.fromRGBO(9, 129, 74, 1),
-                borderRadius: BorderRadius.circular(30)),
-                margin: EdgeInsets.only(top: 100.0),
-            padding:
-                EdgeInsets.only(left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
-            child: Text(
-              "Criar uma lista",
-              style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(245, 228, 192, 1)),
+          GestureDetector(
+            onTap: () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) {
+              return const ListPage();
+            })),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Color.fromRGBO(9, 129, 74, 1),
+                  borderRadius: BorderRadius.circular(30)),
+              margin: const EdgeInsets.only(top: 100.0),
+              padding: EdgeInsets.only(
+                  left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
+              child: const Text(
+                "Criar uma lista",
+                style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(245, 228, 192, 1)),
+              ),
             ),
           ),
-          
+
           // Btn entrar
-          Container(
-            decoration: BoxDecoration(
-                border: Border.all(color: Color.fromRGBO(9, 129, 74, 1)),
-                borderRadius: BorderRadius.circular(30)),
-                margin: EdgeInsets.only(top: 16.0),
-            padding:
-                EdgeInsets.only(left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
-            child: Text(
-              "Entrar",
-              style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(9, 129, 74, 1)),
+          GestureDetector(
+            onTap: () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) {
+              return const JoinPage();
+            })),
+            child: Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color.fromRGBO(9, 129, 74, 1)),
+                  borderRadius: BorderRadius.circular(30)),
+              margin: const EdgeInsets.only(top: 16.0),
+              padding: EdgeInsets.only(
+                  left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
+              child: const Text(
+                "Entrar",
+                style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromRGBO(9, 129, 74, 1)),
+              ),
             ),
           ),
+          Spacer(),
+          Spacer(),
         ],
       ),
     );
