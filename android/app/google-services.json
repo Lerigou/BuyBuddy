@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "639504722297",
+    "firebase_url": "https://buybuddy-833fc-default-rtdb.firebaseio.com",
+    "project_id": "buybuddy-833fc",
+    "storage_bucket": "buybuddy-833fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639504722297:android:443a6d7905694aaee027a8",
+        "android_client_info": {
+          "package_name": "com.example.buy_buddy_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoSkkg8O4REMPnE8_WVkvZORkFn22AC74"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
