@@ -17,48 +17,33 @@ class _ListPageState extends State<ListPage> {
   bool _suggest = false;
 
   @override
-  void initState() {
-    super.initState();
-    _loadItems();
-  }
-
-  void _loadItems() {
-    _databaseService.getItems().then((items) {
-      setState(() {
-        _items = items.values
-            .toList()
-            .map((item) => item as Map<String, dynamic>)
-            .toList();
-      });
-    }).catchError((error) {
-      print('Erro ao carregar itens: $error');
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double iconPadding = screenWidth * 0.03;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(9, 129, 74, 1),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0, top: 40.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "BuyBuddy",
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(245, 228, 192, 1),
-                  ),
-                ),
-                Image.asset(
-                    "lib/utils/assets/images/light_shopping_kart_icon.png"),
-              ],
+      appBar: AppBar(
+          leading: const BackButton(color: Color.fromRGBO(245, 228, 192, 1)),
+          title: const Text(
+            "BuyBuddy",
+            style: TextStyle(
+              color: Color.fromRGBO(245, 228, 192, 1),
+              fontWeight: FontWeight.bold,
             ),
           ),
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: iconPadding),
+              child: const Icon(
+                Icons.shopping_cart,
+                color: Color.fromRGBO(245, 228, 192, 1),
+              ),
+            ),
+          ],
+          backgroundColor: const Color.fromRGBO(9, 129, 74, 1)),
+      body: Column(
+        children: [
           Expanded(
             child: Container(
               margin: const EdgeInsets.only(top: 20.0),
@@ -152,8 +137,8 @@ class _ListPageState extends State<ListPage> {
                             setState(() {
                               _items[index]['status'] = newStatus;
                             });
-                            _databaseService.updateItem(_items[index]['id'],
-                                _items[index]['title'], newStatus ?? false);
+                            // _databaseService.updateItem(_items[index]['id'],
+                            //     _items[index]['title'], newStatus ?? false);
                           },
                           controlAffinity: ListTileControlAffinity.leading,
                         );
@@ -247,22 +232,22 @@ class _ListPageState extends State<ListPage> {
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            String itemId =
-                                Uuid().v4(); // Gera um UUID para o item
-                            _databaseService
-                                .addItem(_title, _suggest, itemId)
-                                .then((_) {
-                              setState(() {
-                                _loadItems(); // Recarrega os itens após adicionar um novo
-                              });
-                              Navigator.of(cxt).pop();
-                            }).catchError((error) {
-                              print(
-                                  "Ocorreu um erro ao adicionar o item: $error");
-                            });
-                          }
+                          // if (_formKey.currentState!.validate()) {
+                          //   _formKey.currentState!.save();
+                          //   String itemId =
+                          //       Uuid().v4(); // Gera um UUID para o item
+                          //   _databaseService
+                          //       .addItem(_title, _suggest, itemId)
+                          //       .then((_) {
+                          //     setState(() {
+                          //       _loadItems(); // Recarrega os itens após adicionar um novo
+                          //     });
+                          //     Navigator.of(cxt).pop();
+                          //   }).catchError((error) {
+                          //     print(
+                          //         "Ocorreu um erro ao adicionar o item: $error");
+                          //   });
+                          // }
                         },
                         style: ButtonStyle(
                           backgroundColor:
