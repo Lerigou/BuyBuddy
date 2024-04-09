@@ -1,6 +1,7 @@
 import 'package:buy_buddy_app/pages/join_page.dart';
 import 'package:buy_buddy_app/pages/list_page.dart';
 import 'package:buy_buddy_app/pages/new_list_page.dart';
+import 'package:buy_buddy_app/pages/shopping_lists.dart';
 import 'package:buy_buddy_app/pages/view_profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +62,12 @@ class IntroPage extends StatelessWidget {
                   ),
                 );
                 } else if (value == 1) {
-                  // leva pra lista de lista de comoras
+                  // leva pra lista de comporas
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ShoppingList(),
+                  ),);
                 } else if (value == 2) {
                   // da logout e vai pra tela de login
                 }

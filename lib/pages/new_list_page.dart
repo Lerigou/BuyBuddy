@@ -11,7 +11,6 @@ class NewListPage extends StatefulWidget {
 }
 
 class _NewListPageState extends State<NewListPage> {
-  
   final DatabaseService _databaseService =
       DatabaseService(); // Instância da classe DatabaseService
 
@@ -103,34 +102,35 @@ class _NewListPageState extends State<NewListPage> {
                 ],
               ),
             ),
-
-              GestureDetector(
-                onTap: () async {
-                  await _databaseService.addShoppingList(list_name.text);
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ListPage(),
-                    ),
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      border:
-                          Border.all(color: Color.fromRGBO(245, 228, 192, 1)),
-                      borderRadius: BorderRadius.circular(30)),
-                  margin: const EdgeInsets.only(top: 16.0),
-                  padding: EdgeInsets.only(
-                      left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
-                  child: const Text(
-                    "Criar lista",
-                    style: TextStyle(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(245, 228, 192, 1)),
+            GestureDetector(
+              onTap: () async {
+                await _databaseService.addShoppingList(list_name.text);
+                var uid = await check();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ListPage(uid: uid, 
+                        listName: list_name.text),
                   ),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color.fromRGBO(245, 228, 192, 1)),
+                    borderRadius: BorderRadius.circular(30)),
+                margin: const EdgeInsets.only(top: 16.0),
+                padding: EdgeInsets.only(
+                    left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
+                child: const Text(
+                  "Criar lista",
+                  style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(245, 228, 192, 1)),
                 ),
               ),
+            ),
           ],
         ),
       ),

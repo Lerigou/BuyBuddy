@@ -1,4 +1,8 @@
+import 'package:buy_buddy_app/pages/join_page.dart';
+import 'package:buy_buddy_app/pages/list_page.dart';
 import 'package:buy_buddy_app/pages/login_page.dart';
+import 'package:buy_buddy_app/pages/shopping_lists.dart';
+import 'package:buy_buddy_app/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'pages/intro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
 
     return MaterialApp(
       theme: ThemeData(

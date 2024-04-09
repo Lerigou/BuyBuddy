@@ -44,41 +44,41 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDnGkhTNv7kn0O4Rb84HyIONP5heqVwtq0',
-    appId: '1:639504722297:web:5cad705e0dffcb54e027a8',
-    messagingSenderId: '639504722297',
-    projectId: 'buybuddy-833fc',
-    authDomain: 'buybuddy-833fc.firebaseapp.com',
-    databaseURL: 'https://buybuddy-833fc-default-rtdb.firebaseio.com',
-    storageBucket: 'buybuddy-833fc.appspot.com',
+    apiKey: 'AIzaSyCafXaXw7f8JWc7u2kvrUyFqJGqW8TV-Es',
+    appId: '1:476762936282:web:5840cb6f11bf220aa3a6e3',
+    messagingSenderId: '476762936282',
+    projectId: 'aula-crud-836c0',
+    authDomain: 'aula-crud-836c0.firebaseapp.com',
+    databaseURL: 'https://aula-crud-836c0-default-rtdb.firebaseio.com',
+    storageBucket: 'aula-crud-836c0.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCoSkkg8O4REMPnE8_WVkvZORkFn22AC74',
-    appId: '1:639504722297:android:443a6d7905694aaee027a8',
-    messagingSenderId: '639504722297',
-    projectId: 'buybuddy-833fc',
-    databaseURL: 'https://buybuddy-833fc-default-rtdb.firebaseio.com',
-    storageBucket: 'buybuddy-833fc.appspot.com',
+    apiKey: 'AIzaSyAOxYZzVSAGCDZBdAOjTvNwIQlLllUDtnc',
+    appId: '1:476762936282:android:22a4531d80d7cc9da3a6e3',
+    messagingSenderId: '476762936282',
+    projectId: 'aula-crud-836c0',
+    databaseURL: 'https://aula-crud-836c0-default-rtdb.firebaseio.com',
+    storageBucket: 'aula-crud-836c0.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDH2g_0DqpsTciJhqQlLn1SCjs76CcXzT0',
-    appId: '1:639504722297:ios:9e68c7b08c0c815de027a8',
-    messagingSenderId: '639504722297',
-    projectId: 'buybuddy-833fc',
-    databaseURL: 'https://buybuddy-833fc-default-rtdb.firebaseio.com',
-    storageBucket: 'buybuddy-833fc.appspot.com',
+    apiKey: 'AIzaSyD28c0dSX_8TlmOtqSimhvp8OUTMffmAlE',
+    appId: '1:476762936282:ios:459e1d9f2028491fa3a6e3',
+    messagingSenderId: '476762936282',
+    projectId: 'aula-crud-836c0',
+    databaseURL: 'https://aula-crud-836c0-default-rtdb.firebaseio.com',
+    storageBucket: 'aula-crud-836c0.appspot.com',
     iosBundleId: 'com.example.buyBuddyApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDH2g_0DqpsTciJhqQlLn1SCjs76CcXzT0',
-    appId: '1:639504722297:ios:321b16ab01f102d0e027a8',
-    messagingSenderId: '639504722297',
-    projectId: 'buybuddy-833fc',
-    databaseURL: 'https://buybuddy-833fc-default-rtdb.firebaseio.com',
-    storageBucket: 'buybuddy-833fc.appspot.com',
+    apiKey: 'AIzaSyD28c0dSX_8TlmOtqSimhvp8OUTMffmAlE',
+    appId: '1:476762936282:ios:d5193fef64585221a3a6e3',
+    messagingSenderId: '476762936282',
+    projectId: 'aula-crud-836c0',
+    databaseURL: 'https://aula-crud-836c0-default-rtdb.firebaseio.com',
+    storageBucket: 'aula-crud-836c0.appspot.com',
     iosBundleId: 'com.example.buyBuddyApp.RunnerTests',
   );
 }
