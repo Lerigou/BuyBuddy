@@ -1,25 +1,22 @@
-import 'package:buy_buddy_app/pages/edit_profile_page.dart';
 import 'package:buy_buddy_app/pages/intro_page.dart';
 import 'package:buy_buddy_app/pages/login_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:buy_buddy_app/pages/view_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:buy_buddy_app/services/database_service.dart';
-import 'package:flutter/widgets.dart';
 // Instância da classe DatabaseService
 
-class ViewProfilePage extends StatefulWidget {
-  const ViewProfilePage({Key? key}) : super(key: key);
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<ViewProfilePage> createState() => _ViewProfilePageState();
+  State<EditProfilePage> createState() => _EditProfilePageState();
 }
 
-class _ViewProfilePageState extends State<ViewProfilePage> {
+class _EditProfilePageState extends State<EditProfilePage> {
   final DatabaseService _databaseService = DatabaseService();
   bool isLoading =
       false; // Define uma variável para controlar o estado de carregamento
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
+  TextEditingController nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +55,7 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                     CircularProgressIndicator(), // Indicador de progresso circular.
               );
             } else {
+              nameController.text = snapshot.data['name'];
 
               return Center(
                 child: Column(
@@ -80,46 +78,67 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                               ),
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Color.fromRGBO(9, 129, 74, 1)),
-                                borderRadius: BorderRadius.circular(10)),
-                            margin: const EdgeInsets.only(top: 24.0),
-                            padding: EdgeInsets.all(10.0),
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            child: Text(
-                              "${snapshot.data['name']}",
-                              style: TextStyle(
-                                color: Color.fromRGBO(9, 129, 74, 1),
-                                fontSize: 24.0,
+                          TextFormField(
+                            controller: nameController,
+                            style: TextStyle(
+                              color: Color.fromRGBO(9, 129, 74, 1),
+                              fontSize: 20.0,
+                            ),
+                            decoration: const InputDecoration(
+                              label: Text(
+                                'Nome',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(9, 129, 74, 1),
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                              border: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(9, 129, 74, 1),
+                                  width: 3.0, // Largura da borda
+                                ),
                               ),
                             ),
+                            keyboardType: TextInputType.text,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: Color.fromRGBO(9, 129, 74, 1)),
-                                borderRadius: BorderRadius.circular(10)),
-                            margin: const EdgeInsets.only(top: 24.0),
-                            padding: EdgeInsets.all(10.0),
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            child: Text(
-                              "${snapshot.data['email']}",
-                              style: TextStyle(
-                                color: Color.fromRGBO(9, 129, 74, 1),
-                                fontSize: 24.0,
+                          TextFormField(
+                            enabled: false,
+                            initialValue: snapshot.data['email'],
+                            style: TextStyle(
+                              color: Color.fromRGBO(9, 129, 74, 1),
+                              fontSize: 20.0,
+                            ),
+                            decoration: const InputDecoration(
+                              label: Text(
+                                'Email',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(9, 129, 74, 1),
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                              border: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(9, 129, 74, 1),
+                                  width: 3.0, // Largura da borda
+                                ),
                               ),
                             ),
+                            keyboardType: TextInputType.text,
                           ),
                         ],
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const EditProfilePage();
-                      })),
+                      onTap: () async {
+                        await editUser(nameController.text);
+                        Navigator.pushReplacement(
+                          // Navega para a tela inicial após a atualização.
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ViewProfilePage(),
+                          ),
+                        );
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(9, 129, 74, 1),
@@ -128,7 +147,7 @@ class _ViewProfilePageState extends State<ViewProfilePage> {
                         padding: EdgeInsets.only(
                             left: 40.0, right: 40.0, top: 6.0, bottom: 6.0),
                         child: const Text(
-                          "Editar perfil",
+                          "Salvar alterações",
                           style: TextStyle(
                               fontSize: 24.0,
                               fontWeight: FontWeight.bold,
