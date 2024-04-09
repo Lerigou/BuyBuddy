@@ -131,7 +131,6 @@ class _NewListPageState extends State<NewListPage> {
                   ),
                 ),
               ),
-            //btn criar
           ],
         ),
       ),

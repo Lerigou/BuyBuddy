@@ -8,23 +8,75 @@ class IntroPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double iconPadding = screenWidth * 0.04;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(245, 228, 192, 1),
+      appBar: AppBar(actions: <Widget>[
+        Padding(
+          padding: EdgeInsets.only(right: iconPadding),
+          child: PopupMenuButton(
+              color: Color.fromRGBO(9, 129, 74, 1),
+              // add icon, by default "3 dot" icon
+              icon: Icon(Icons.more_vert_rounded, color: Color.fromRGBO(9, 129, 74, 1)),
+              itemBuilder: (context) {
+                return [
+                  PopupMenuItem<int>(
+                    value: 0,
+                    child: Text(
+                      "Minha conta",
+                      style: TextStyle(
+                          color: Color.fromRGBO(245, 228, 192, 1),
+                          fontSize: 18.0),
+                    ),
+                  ),
+                  PopupMenuItem<int>(
+                    value: 1,
+                    child: Text(
+                      "Minhas listas",
+                      style: TextStyle(
+                          color: Color.fromRGBO(245, 228, 192, 1),
+                          fontSize: 18.0),
+                    ),
+                  ),
+                  PopupMenuItem<int>(
+                    value: 2,
+                    child: Text(
+                      "Sair",
+                      style: TextStyle(
+                          color: Color.fromRGBO(245, 228, 192, 1),
+                          fontSize: 18.0),
+                    ),
+                  ),
+                ];
+              },
+              onSelected: (value) {
+                if (value == 0) {
+                  // leva pra página de conta
+                } else if (value == 1) {
+                  // leva pra lista de lista de comoras
+                } else if (value == 2) {
+                  // da logout e vai pra tela de login
+                }
+              }),
+        ),
+      ], backgroundColor: Color.fromRGBO(245, 228, 192, 1)),
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //logo
-            Padding(
-              padding: const EdgeInsets.only(left: 175.0, top: 10.0),
-              child: Transform.scale(
-                scale: 1.1, // Defina a escala desejada (1.0 é a escala original)
-                child: Image.asset(
-                  'lib/utils/assets/images/shopping_kart.png',
-                ),
-              ),
-            ),
-        
-            Spacer(),
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 175.0, top: 10.0),
+            //   child: Transform.scale(
+            //     scale: 1.1, // Defina a escala desejada (1.0 é a escala original)
+            //     child: Image.asset(
+            //       'lib/utils/assets/images/shopping_kart.png',
+            //     ),
+            //   ),
+            // ),
             const Padding(
               padding: EdgeInsets.only(left: 54.0, top: 00.0),
               child: Align(
@@ -53,11 +105,11 @@ class IntroPage extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             // Btn criar
             GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) {
+              onTap: () =>
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return const NewListPage();
               })),
               child: Container(
@@ -76,11 +128,11 @@ class IntroPage extends StatelessWidget {
                 ),
               ),
             ),
-        
+
             // Btn entrar
             GestureDetector(
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) {
+              onTap: () =>
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return const JoinPage();
               })),
               child: Container(
@@ -99,8 +151,6 @@ class IntroPage extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(),
-            Spacer(),
           ],
         ),
       ),
