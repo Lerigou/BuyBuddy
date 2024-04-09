@@ -1,0 +1,3 @@
+NÂO ESQUECER DE ATUALIZAR A CONFIGURAÇÂO DO BD PARA SUA CONTA
+TELA DE EXIBIÇÃO DE LISTAS - Adicionar o evento de click para redirecionar para dentro da lista. Logica já esta criada, utilizar o mesmo conceito da página NEW LIST PAGE
+TELA DE ITENS - adicionar limpeza ao criar um novo item

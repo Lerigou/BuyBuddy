@@ -13,8 +13,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+
   final DatabaseService _databaseService =
       DatabaseService(); // Instância da classe DatabaseService
+
+
 
   bool isLoading =
       false; // Define uma variável para controlar o estado de carregamento
@@ -25,7 +29,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double iconPadding = screenWidth * 0.03;
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(245, 228, 192, 1),
       appBar: AppBar(
