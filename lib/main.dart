@@ -1,3 +1,4 @@
+import 'package:buy_buddy_app/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'pages/intro_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'LeagueSpartan'),
       debugShowCheckedModeBanner: false, // tira o indicador de debug do app
-      home: IntroPage(),
+      home: LoginPage(),
     );
   }
 }
