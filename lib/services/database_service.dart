@@ -42,9 +42,7 @@ class DatabaseService {
           [newItem]), // Adiciona o novo item à lista existente
     });
   }
-
 }
-
 
 
 // CRUD de usuário
@@ -143,7 +141,7 @@ deleteUser() async {
 }
 
 // Função para editar as informações do usuário no Firestore.
-editUser(name, email) async {
+editUser(name) async {
   // Inicializa o Firebase.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   // Obtém a instância de FirebaseAuth.
@@ -154,6 +152,6 @@ editUser(name, email) async {
   // Define as novas informações do usuário no Firestore.
   await db.collection('Users').doc(user.currentUser!.uid).set({
     'name': name,
-    'email': email
+    'email': user.currentUser!.email
   });
 }

@@ -59,7 +59,7 @@ class _SignupPageState extends State<SignupPage> {
                   const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Faça o Cadastro",
+                      "Bem vindo ao seu perfil",
                       style: TextStyle(
                         fontSize: 48.0,
                         fontWeight: FontWeight.w900,

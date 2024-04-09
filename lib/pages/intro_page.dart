@@ -1,6 +1,7 @@
 import 'package:buy_buddy_app/pages/join_page.dart';
 import 'package:buy_buddy_app/pages/list_page.dart';
 import 'package:buy_buddy_app/pages/new_list_page.dart';
+import 'package:buy_buddy_app/pages/view_profile_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -53,7 +54,12 @@ class IntroPage extends StatelessWidget {
               },
               onSelected: (value) {
                 if (value == 0) {
-                  // leva pra página de conta
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ViewProfilePage(),
+                  ),
+                );
                 } else if (value == 1) {
                   // leva pra lista de lista de comoras
                 } else if (value == 2) {
@@ -67,16 +73,6 @@ class IntroPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //logo
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 175.0, top: 10.0),
-            //   child: Transform.scale(
-            //     scale: 1.1, // Defina a escala desejada (1.0 é a escala original)
-            //     child: Image.asset(
-            //       'lib/utils/assets/images/shopping_kart.png',
-            //     ),
-            //   ),
-            // ),
             const Padding(
               padding: EdgeInsets.only(left: 54.0, top: 00.0),
               child: Align(
@@ -132,7 +128,7 @@ class IntroPage extends StatelessWidget {
             // Btn entrar
             GestureDetector(
               onTap: () =>
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
                 return const JoinPage();
               })),
               child: Container(
